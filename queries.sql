@@ -35,15 +35,6 @@ ALTER TABLE quote_products ADD FOREIGN KEY (product_id) REFERENCES products (pro
 ALTER TABLE quote_products ADD FOREIGN KEY (quote_id) REFERENCES quotes (quote_id);
 
 
--- Crear users
-CREATE TABLE users (
-  user_id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL,
-  role VARCHAR(40) NOT NULL,
-);
-
 -- Insertar datos en tabla producto
 INSERT INTO products (product_name, price, description, url_photo, type)
 VALUES
@@ -68,6 +59,16 @@ VALUES
 (3, 2, 1),
 (4, 4, 1);
 
+
+-- Crear users
+CREATE TABLE users (
+  user_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(40) NOT NULL,
+);
+
 -- Insertar datos en tabla users
 INSERT INTO users (name, email, password, role)
 VALUES
@@ -82,49 +83,3 @@ VALUES
 
 -----------------------------------------------------------------------------------------------------------------------
 
--- CRUD users
--- CREATE
-INSERT INTO users(name, email, password, role, logged, last_logged_date)
-VALUES ('Prueba', 'prueba@gmail.com', '123456', 'user', false, '2024-07-01 20:57:30.212678+00');
--- READ ALL
-SELECT *
-FROM users
-WHERE role = 'user';
--- READ ONE
-SELECT *
-FROM users
-WHERE email = 'prueba@gmail.com' 
--- UPDATE
-UPDATE users
-SET name = 'Prueba2',
-email = 'prueba2@gmail.com',
-password = '123456123456',
-role = 'user',
-logged: false,
-last_logged_date: '2024-07-01 20:57:30.212678+00'
-WHERE email = 'prueba@gmail.com';
--- DELETE
-DELETE FROM users
-WHERE email = 'prueba2@gmail.com';
-
--- CRUD quotes
--- CREATE
-INSERT INTO quotes(user_id, job_id)
-VALUES((SELECT user_id FROM users WHERE email = 'diego@gmail.com'), 2);
--- READ
-SELECT job_id
-FROM quotes
-WHERE user_id = (SELECT user_id FROM users WHERE email = 'diego@gmail.com')
--- DELETE
-DELETE FROM quotes
-WHERE user_id = (SELECT user_id FROM users WHERE email = 'diego@gmail.com')
-AND job_id = '2';
-
--- Pruebas de Queries
-SELECT * FROM public.users;
-
-SELECT * FROM public.quotes;
-
-SELECT u.email, f.job_id
-FROM public.quotes f
-INNER JOIN public.users u ON u.user_id = f.user_id;
