@@ -10,12 +10,13 @@ app.use(express.urlencoded({ extended: true })); // Habilito recepción de formu
 const productsRoutes = require("./routes/products.routes");
 const quotesRoutes = require("./routes/quotes.routes");
 const quote_productsRoutes = require("./routes/quote_products.routes");
+const usersRoutes = require("./routes/users.routes");
 
 // API Routes
 app.use('/api/products', productsRoutes);
 app.use('/api/quotes', quotesRoutes);
 app.use('/api/quote_products', quote_productsRoutes);
-
+app.use('/api/users', usersRoutes);
 
 
 app.get("/", (req, res) => {

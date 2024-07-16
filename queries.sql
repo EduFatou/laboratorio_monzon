@@ -9,31 +9,39 @@ CREATE TABLE products (
   CONSTRAINT chk_type CHECK (type IN ('producto', 'servicio'))
 );
 
+-- Crear users
+CREATE TABLE users (
+  user_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  phone VARCHAR(40) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(40) NOT NULL,
+  CONSTRAINT chk_role CHECK (role IN ('admin', 'user'))
+);
+
 -- Crear presupuestos
 CREATE TABLE quotes (
   quote_id SERIAL NOT NULL PRIMARY KEY,
   user_id INT NOT NULL,
-  details VARCHAR(500) NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(user_id)
+  details VARCHAR(500) NOT NULL
 );
 
--- Foreign Key presupuestos
-ALTER TABLE quotes ADD FOREIGN KEY (user_id) REFERENCES users (user_id);
 
 -- Crear presupuesto_productos
 CREATE TABLE quote_products (
   quote_product_id SERIAL NOT NULL PRIMARY KEY,
   quote_id INT NOT NULL,
   product_id INT NOT NULL,
-  quantity INT NOT NULL,
-  FOREIGN KEY (quote_id) REFERENCES quotes(quote_id),
-  FOREIGN KEY (product_id) REFERENCES products(product_id)
+  quantity INT NOT NULL
 );
 
--- Foreign Keys presupuesto_productos
-ALTER TABLE quote_products ADD FOREIGN KEY (product_id) REFERENCES products (product_id);
-ALTER TABLE quote_products ADD FOREIGN KEY (quote_id) REFERENCES quotes (quote_id);
-
+-- Insertar datos en tabla users
+INSERT INTO users (name, email, phone, password, role)
+VALUES
+('Admin', 'admin@gmail.com', '+34 600 000 000', '123456', 'admin'),
+('Edu', 'edu@gmail.com','+34 600 000 001', '123456', 'user'),
+('Juan', 'juan@gmail.com','+34 600 000 002', '123456', 'user');
 
 -- Insertar datos en tabla producto
 INSERT INTO products (product_name, price, description, url_photo, type)
@@ -59,24 +67,12 @@ VALUES
 (3, 2, 1),
 (4, 4, 1);
 
+-- Foreign Key presupuestos
+ALTER TABLE quotes ADD FOREIGN KEY (user_id) REFERENCES users (user_id);
 
--- Crear users
-CREATE TABLE users (
-  user_id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL,
-  role VARCHAR(40) NOT NULL,
-);
-
--- Insertar datos en tabla users
-INSERT INTO users (name, email, password, role)
-VALUES
-('Admin', 'admin@gmail.com', '123456', 'admin'),
-('Edu', 'edu@gmail.com', '123456', 'user');
-('Juan', 'juan@gmail.com', '123456', 'user');
-
-
+-- Foreign Keys presupuesto_productos
+ALTER TABLE quote_products ADD FOREIGN KEY (product_id) REFERENCES products (product_id);
+ALTER TABLE quote_products ADD FOREIGN KEY (quote_id) REFERENCES quotes (quote_id);
 
 
 
