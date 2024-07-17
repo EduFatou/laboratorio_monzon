@@ -6,14 +6,14 @@ const CategoriesList = () => {
 
   const { productList } = useContext(ProductListContext);
 
-  const categories = ['fijas', 'implantes', 'ferulas', 'removibles'];
+  const categories = ['Fijas', 'Implantes', 'Férulas', 'Removibles'];
 
   return (
     <section className='categories'>
       {categories.map(category => (
         <Link to={`/category/${category}`} key={category} className="category-card">
           <div className="card-content">
-            <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
+            <h2>{category}</h2>
           </div>
         </Link>
       ))}

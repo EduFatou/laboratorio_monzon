@@ -45,18 +45,18 @@ VALUES
 -- Insertar datos en tabla producto
 INSERT INTO products (product_name, price, description, category, url_photo)
 VALUES
-('Corona de zirconio', 100, 'Es un zirconio monolítico que por sus características podemos realizar restauraciones tanto para el sector posterior como anterior.', 'fijas', 'foto'),
-('Corona de disilicato', 100, 'La prótesis se une al pilar mediante cementos dentales.', 'fijas', 'foto'),
-('Corona de metal sintetizado', 100, 'Es una aleación de cromo níquel titanio y molibdeno. Se puede utilizar en pacientes alérgicos al cobalto.', 'fijas', 'foto'),
-('Estructura esquelética', 100, 'Aleación de cromo cobalto. Montaje en resina', 'removibles', 'foto'),
-('Dentadura parcial', 100, 'Son dentaduras mucosoportadas que reemplazan parte de los dientes.', 'removibles', 'foto'),
-('Dentadura completa', 100, 'Sustituye la totalidad de los dientes y se realiza mediante acrílico rígido.', 'removibles', 'foto'),
-('Prótesis Híbrida', 100, 'Las prótesis realizadas con fibra de carbono tienen como principal beneficio su absorción de carga, resistencia, bio-compatibilidad y bajo peso.', 'implates', 'foto'),
-('Atornillado', 100, 'Sustituyen la raíz que falta, se fija la prótesis al pilar mediante una rosca o tornillo.', 'implates', 'foto'),
-('SobreDentadura', 100, 'Es una prótesis mixta cuya base de resina cubre los implantes dentales osteo-integrados.', 'implates', 'foto'),
-('Férula de descarga', 100, 'Pueden actuar como protectores de los dientes para evitar los desgastes y abrasiones, y también pueden cumplir una función de relajación muscular y reposición mandibular.', 'ferulas', 'foto'),
-('Férula de blanqueamiento', 100, 'Se realizan atendiendo los criterios mandibulares y maxilares de cada paciente.', 'ferulas', 'foto'),
-('Férula de mantenimiento', 100, 'Se realizan atendiendo los criterios mandibulares y maxilares de cada paciente.', 'ferulas', 'foto');
+('Corona de zirconio', 100, 'Es un zirconio monolítico que por sus características podemos realizar restauraciones tanto para el sector posterior como anterior.', 'Fijas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Protesis-fija-sin-metal-Zirconio-Lava-Esthetic-2-Dentales-Beticos.jpg'),
+('Corona de disilicato', 100, 'La prótesis se une al pilar mediante cementos dentales.', 'Fijas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Implantes-cementados-Dentales-Beticos.jpg'),
+('Corona de metal sintetizado', 100, 'Es una aleación de cromo níquel titanio y molibdeno. Se puede utilizar en pacientes alérgicos al cobalto.', 'Fijas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Protesis-fija-con-metal-Tilite-Dentales-Beticos-768x768.jpg'),
+('Estructura esquelética', 100, 'Aleación de cromo cobalto. Montaje en resina', 'Removibles', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Protesis-removible-esqueletica-Super-Nobilium-Dentales-Beticos-768x768.jpg'),
+('Dentadura parcial', 100, 'Son dentaduras mucosoportadas que reemplazan parte de los dientes.', 'Removibles', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Protesis-removible-acrilica-Dentadura-parcial-3-Dentales-Beticos.jpg'),
+('Dentadura completa', 100, 'Sustituye la totalidad de los dientes y se realiza mediante acrílico rígido.', 'Removibles', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Protesis-removible-acrilica-Dentadura-completa-2-Dentales-Beticos.jpg'),
+('Prótesis Híbrida', 100, 'Las prótesis realizadas con fibra de carbono tienen como principal beneficio su absorción de carga, resistencia, bio-compatibilidad y bajo peso.', 'Implantes', 'https://www.dentalgalindo.com/wp-content/uploads/2022/02/protesis-hibrida02.jpg'),
+('Atornillado', 100, 'Sustituyen la raíz que falta, se fija la prótesis al pilar mediante una rosca o tornillo.', 'Implantes', 'https://www.ledezmadental.com/wp-content/uploads/2019/10/zirconio-sobre-implantes.png'),
+('SobreDentadura', 100, 'Es una prótesis mixta cuya base de resina cubre los implantes dentales osteo-integrados.', 'Implantes', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Implante-SobreDentadura-Dentales-Beticos.jpg'),
+('Férula de descarga', 100, 'Pueden actuar como protectores de los dientes para evitar los desgastes y abrasiones, y también pueden cumplir una función de relajación muscular y reposición mandibular.', 'Férulas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Ferula-relajacion-Michigan-2-Dentales-Beticos.jpg'),
+('Férula de blanqueamiento', 100, 'Se realizan atendiendo los criterios mandibulares y maxilares de cada paciente.', 'Férulas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Ferula-relajacion-Brux-Fit-Dentales-Beticos.jpg'),
+('Férula de mantenimiento', 100, 'Se realizan atendiendo los criterios mandibulares y maxilares de cada paciente.', 'Férulas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Ferula-relajacion-Brux-Fit-Mixta-vista-superior-Dentales-Beticos.jpg');
 
 
 -- Insertar datos en tabla presupuesto

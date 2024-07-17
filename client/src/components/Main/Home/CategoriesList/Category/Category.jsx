@@ -7,7 +7,7 @@ const Category = () => {
 
   return (
     <section className='category'>
-      <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
+      <h1>{category}</h1>
       <CardList category={category} />
     </section>
   );

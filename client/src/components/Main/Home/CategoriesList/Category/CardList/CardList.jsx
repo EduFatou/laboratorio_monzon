@@ -4,9 +4,9 @@ import Card from './Card';
 
 const CardList = ({ category }) => {
   const { productList } = useContext(ProductListContext);
-
+  console.log('ProductList:', productList);
   const filteredProducts = productList.filter(product => product.category === category);
-
+  console.log(`Filtered Products for category ${category}:`, filteredProducts);
   return (
     <section className='card-list'>
       {filteredProducts.map(product => (
