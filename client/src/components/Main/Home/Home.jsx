@@ -1,17 +1,19 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { ProductListContext } from '../../../context/ProductListContext';
 import CategoriesList from './CategoriesList';
 import axios from 'axios';
-import { ProductListContext } from '../../../context/ProductListContext';
+
 
 const Home = () => {
-  const { updateProductList } = useContext(ProductListContext);
+  const { productList, updateProductList } = useContext(ProductListContext);
+  const [value, setValue] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await axios.get('http://localhost:3000/api/products');
         const json = res.data;
-        console.log(json)
+
         updateProductList(json);
       } catch (e) {
         console.error(e);

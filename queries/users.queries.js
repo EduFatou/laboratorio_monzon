@@ -4,7 +4,7 @@ const queries = {
     readUsers: `SELECT * 
     FROM users
     WHERE role = 'user';`,
-    readUsersByEmail: `SELECT name, email, phone, password, role
+    readUsersByEmail: `SELECT user_id, name, email, phone, password, role
     FROM users
     WHERE email = $1`,
     deleteUser: `DELETE FROM users

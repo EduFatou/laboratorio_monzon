@@ -5,7 +5,7 @@ const validateCreateQuote = [
         .exists().withMessage("user id is required")
         .isNumeric().withMessage("quote id should be a number"),
     body("details")
-        .optional()
+        .exists().withMessage("user id is required")
         .isString().withMessage("description should be a string")
 ];
 

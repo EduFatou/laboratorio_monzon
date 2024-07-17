@@ -12,6 +12,7 @@ const createQuoteController = async (req, res) => {
         "details" in newQuote
     ) {
         try {
+            console.log('Attempting to create quote:', newQuote);
             const response = await quote.createQuote(req.body.user_id, req.body.details);
             res.status(201).json({
                 items_created: response

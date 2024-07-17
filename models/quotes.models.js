@@ -3,7 +3,7 @@ const pool = require('../config/db_pgsql');
 
 
 const createQuote = async (quote) => {
-    const { user_id, details} = quote;
+    const { user_id, details } = quote;
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
