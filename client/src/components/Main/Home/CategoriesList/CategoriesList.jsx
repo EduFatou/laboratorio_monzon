@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Carousel } from 'react-bootstrap';
 import { ProductListContext } from '../../../../context/ProductListContext';
 
 const CategoriesList = () => {
@@ -10,15 +11,25 @@ const CategoriesList = () => {
 
   return (
     <section className='categories'>
-      {categories.map(category => (
-        <Link to={`/category/${category}`} key={category} className="category-card">
-          <div className="card-content">
-            <h2>{category}</h2>
-          </div>
-        </Link>
-      ))}
-  </section>
+      <Carousel>
+        {categories.map((category, index) => (
+          <Carousel.Item key={index}>
+            <Link to={`/category/${category}`} className="category-card">
+              <img
+                className="d-block w-100"
+                src={`https://via.placeholder.com/800x400?text=${category}`}
+                alt={category}
+              />
+              <Carousel.Caption>
+                <h3>{category}</h3>
+              </Carousel.Caption>
+            </Link>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </section>
   );
 };
 
 export default CategoriesList;
+
