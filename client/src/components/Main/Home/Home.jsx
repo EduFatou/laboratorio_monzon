@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import Categorias from './Categorias';
+import React, { useEffect, useState, useContext } from 'react';
+import CategoriesList from './CategoriesList';
 import axios from 'axios';
+import { ProductListContext } from '../../../context/ProductListContext';
 
 
 const Home = () => {
 
-  const [message, setMessage] = useState({});
-  const [products, setProducts] = useState([]);
+  const [value, setValue] = useState(null);// Para guardar el dato a buscar
+  const [info, setInfo] = useState([]);
+  const { productList, updateProductList } = useContext(ProductListContext)
 
-
+ console.log(productList)
   useEffect(() => {
     async function fetchData() {
-      try {
-        // Petición HTTP
-        const res = await axios.get("/api/products");
-        const products = res.data;
-        console.log(res.data)
 
-        // Guarda en el array de posts el resultado. Procesa los datos
-        setProducts(products);
+      try {
+        const res = await axios.get('http://localhost:3000/api/products');
+        const json = res.data;
+        
+        setInfo(json);
+        updateProductList(...productList, json)
       } catch (e) {
-        setProducts([]) // No pintes nada 
+        setValue([]) // No pintes nada 
       }
     }
-
     fetchData();
-  }, [message]); // componentDidUpdate
+  }, [value]); // componentDidUpdate. listener
 
   return <section className="home">
     <article>
-      <Categorias />
+      <CategoriesList />
     </article>
   </section>;
 };

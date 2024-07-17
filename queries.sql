@@ -1,12 +1,11 @@
--- Crear producto
+-- Crear tabla products
 CREATE TABLE products (
   product_id SERIAL NOT NULL PRIMARY KEY,
   product_name VARCHAR(255) NOT NULL,
   price INT NOT NULL,
   description VARCHAR(500) NOT NULL,
-  url_photo VARCHAR(255) NOT NULL,
-  type VARCHAR(50) NOT NULL,
-  CONSTRAINT chk_type CHECK (type IN ('producto', 'servicio'))
+  category VARCHAR(40) NOT NULL,
+  url_photo VARCHAR(255) NOT NULL
 );
 
 -- Crear users
@@ -44,12 +43,21 @@ VALUES
 ('Juan', 'juan@gmail.com','+34 600 000 002', '123456', 'user');
 
 -- Insertar datos en tabla producto
-INSERT INTO products (product_name, price, description, url_photo, type)
+INSERT INTO products (product_name, price, description, category, url_photo)
 VALUES
-('corona zirconio', 100, 'corona monolítica', 'foto', 'producto'),
-('corona cementada', 100, 'corona ceramizada', 'foto', 'producto'),
-('corona sobre implante atornillada', 100, 'corona sobre implante', 'foto', 'producto'),
-('parcial 6 piezas', 100, 'removible resina', 'foto', 'producto');
+('Corona de zirconio', 100, 'Es un zirconio monolítico que por sus características podemos realizar restauraciones tanto para el sector posterior como anterior.', 'fijas', 'foto'),
+('Corona de disilicato', 100, 'La prótesis se une al pilar mediante cementos dentales.', 'fijas', 'foto'),
+('Corona de metal sintetizado', 100, 'Es una aleación de cromo níquel titanio y molibdeno. Se puede utilizar en pacientes alérgicos al cobalto.', 'fijas', 'foto'),
+('Estructura esquelética', 100, 'Aleación de cromo cobalto. Montaje en resina', 'removibles', 'foto'),
+('Dentadura parcial', 100, 'Son dentaduras mucosoportadas que reemplazan parte de los dientes.', 'removibles', 'foto'),
+('Dentadura completa', 100, 'Sustituye la totalidad de los dientes y se realiza mediante acrílico rígido.', 'removibles', 'foto'),
+('Prótesis Híbrida', 100, 'Las prótesis realizadas con fibra de carbono tienen como principal beneficio su absorción de carga, resistencia, bio-compatibilidad y bajo peso.', 'implates', 'foto'),
+('Atornillado', 100, 'Sustituyen la raíz que falta, se fija la prótesis al pilar mediante una rosca o tornillo.', 'implates', 'foto'),
+('SobreDentadura', 100, 'Es una prótesis mixta cuya base de resina cubre los implantes dentales osteo-integrados.', 'implates', 'foto'),
+('Férula de descarga', 100, 'Pueden actuar como protectores de los dientes para evitar los desgastes y abrasiones, y también pueden cumplir una función de relajación muscular y reposición mandibular.', 'ferulas', 'foto'),
+('Férula de blanqueamiento', 100, 'Se realizan atendiendo los criterios mandibulares y maxilares de cada paciente.', 'ferulas', 'foto'),
+('Férula de mantenimiento', 100, 'Se realizan atendiendo los criterios mandibulares y maxilares de cada paciente.', 'ferulas', 'foto');
+
 
 -- Insertar datos en tabla presupuesto
 INSERT INTO quotes (user_id, details)
