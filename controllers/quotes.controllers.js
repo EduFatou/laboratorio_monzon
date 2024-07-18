@@ -12,10 +12,11 @@ const createQuoteController = async (req, res) => {
         "details" in newQuote
     ) {
         try {
-            console.log('Attempting to create quote:', newQuote);
+            console.log('creando presupuesto:', newQuote);
             const response = await quote.createQuote(req.body.user_id, req.body.details);
             res.status(201).json({
-                items_created: response
+                items_created: response,
+                quote_id: response.quote_id
             });
         } catch (error) {
             res.status(500).json({ error: "Error in database" });

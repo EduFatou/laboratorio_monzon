@@ -10,7 +10,7 @@ CREATE TABLE products (
 
 -- Crear users
 CREATE TABLE users (
-  user_id SERIAL PRIMARY KEY,
+  user_id SERIAL NOT NULL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   phone VARCHAR(40) NOT NULL,
@@ -23,16 +23,18 @@ CREATE TABLE users (
 CREATE TABLE quotes (
   quote_id SERIAL NOT NULL PRIMARY KEY,
   user_id INT NOT NULL,
-  details VARCHAR(500) NOT NULL
+  details VARCHAR(500) NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
-
 
 -- Crear presupuesto_productos
 CREATE TABLE quote_products (
   quote_product_id SERIAL NOT NULL PRIMARY KEY,
   quote_id INT NOT NULL,
   product_id INT NOT NULL,
-  quantity INT NOT NULL
+  quantity INT NOT NULL,
+  FOREIGN KEY (quote_id) REFERENCES quotes (quote_id),
+  FOREIGN KEY (product_id) REFERENCES products (product_id)
 );
 
 -- Insertar datos en tabla users
@@ -58,7 +60,6 @@ VALUES
 ('Férula de blanqueamiento', 100, 'Se realizan atendiendo los criterios mandibulares y maxilares de cada paciente.', 'Férulas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Ferula-relajacion-Brux-Fit-Dentales-Beticos.jpg'),
 ('Férula de mantenimiento', 100, 'Se realizan atendiendo los criterios mandibulares y maxilares de cada paciente.', 'Férulas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Ferula-relajacion-Brux-Fit-Mixta-vista-superior-Dentales-Beticos.jpg');
 
-
 -- Insertar datos en tabla presupuesto
 INSERT INTO quotes (user_id, details)
 VALUES
@@ -74,16 +75,3 @@ VALUES
 (2, 1, 2),
 (3, 2, 1),
 (4, 4, 1);
-
--- Foreign Key presupuestos
-ALTER TABLE quotes ADD FOREIGN KEY (user_id) REFERENCES users (user_id);
-
--- Foreign Keys presupuesto_productos
-ALTER TABLE quote_products ADD FOREIGN KEY (product_id) REFERENCES products (product_id);
-ALTER TABLE quote_products ADD FOREIGN KEY (quote_id) REFERENCES quotes (quote_id);
-
-
-
-
------------------------------------------------------------------------------------------------------------------------
-

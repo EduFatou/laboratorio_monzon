@@ -13,7 +13,7 @@ const NavigationBar = () => {
           <Nav.Link as={Link} to="/categorias">Categorías</Nav.Link>
           <Nav.Link as={Link} to="/presupuesto">Presupuesto</Nav.Link>
         </Nav>
-        <Form inline>
+        <Form inline="true">
           <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
           <Button variant="outline-success">Buscar</Button>
         </Form>

@@ -1,6 +1,6 @@
 const queries = {
     createQuote_product: `INSERT INTO quote_products(quote_id, product_id, quantity)
-    VALUES ($1, $2, $3);`,
+    VALUES ($1, $2, $3) RETURNING *;`,
     readQuote_products: `SELECT * 
     FROM quote_products;`,
     readQuote_productByID: `SELECT quote_product_id, quote_id, product_id, quantity

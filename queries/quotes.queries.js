@@ -1,6 +1,6 @@
 const queries = {
     createQuote: `INSERT INTO quotes(user_id, details)
-    VALUES ($1, $2);`,
+    VALUES ($1, $2) RETURNING quote_id;`,
     readQuotes: `SELECT * 
     FROM quotes;`,
     readQuoteByID: `SELECT quote_id, user_id, details

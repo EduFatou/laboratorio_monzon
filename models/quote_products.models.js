@@ -2,8 +2,7 @@ const queries = require('../queries/quote_products.queries')
 const pool = require('../config/db_pgsql');
 
 
-const createQuote_product = async (quote_product) => {
-    const { quote_id, product_id, quantity} = quote_product;
+const createQuote_product = async (quote_id, product_id, quantity) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion

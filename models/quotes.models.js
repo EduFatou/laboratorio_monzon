@@ -2,20 +2,21 @@ const queries = require('../queries/quotes.queries')
 const pool = require('../config/db_pgsql');
 
 
-const createQuote = async (quote) => {
-    const { user_id, details } = quote;
+const createQuote = async (user_id, details) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
         const data = await client.query(queries.createQuote,[user_id, details])
-        result = data.rowCount
+        result = data.rows[0];
     } catch (err) {
         console.log(err);
         throw err;
     } finally {
         client.release();
     }
+    console.log(result)
     return result
+    
 }
 
 //Pruebas PostgreSQL

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Presupuesto = () => {
   const [userData, setUserData] = useState({});
-  const [selectedProducts, setSelectedProducts] = useState([{ product_id: '', quantity: 1 }]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
   const [details, setDetails] = useState('');
 
   const { productList } = useContext(ProductListContext);
@@ -54,8 +54,6 @@ const Presupuesto = () => {
       user_id: userData.user_id,
       details: details
     };
-    console.log(quoteData);
-    console.log(selectedProducts);
 
     try {
       const quoteResponse = await axios.post('http://localhost:3000/api/quotes', quoteData);
@@ -73,7 +71,7 @@ const Presupuesto = () => {
 
       alert('Presupuesto enviado');
     } catch (error) {
-      console.error('Error creating quote:', error.response ? error.response.data : error.message);
+      console.error('Error:', error.response ? error.response.data : error.message);
       alert('Error al crear el presupuesto');
     }
   };
