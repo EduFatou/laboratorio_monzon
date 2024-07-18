@@ -1,0 +1,28 @@
+.portada {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.equipo-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 15px;
+}
+
+@media (max-width: 767px) {
+
+    .card.left .row,
+    .card.right .row {
+        flex-direction: column;
+    }
+
+    .equipo-img {
+        margin: 15px;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+}

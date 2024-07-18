@@ -1,0 +1,8 @@
+.categories-carousel {
+    margin: 0 auto;
+    max-width: 576px;
+  
+    @media (min-width: 576px) {
+      max-width: 576px;
+    }
+  }

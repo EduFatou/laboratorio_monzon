@@ -1,27 +1,31 @@
-import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
-import { ProductListContext } from '../../../../context/ProductListContext';
+import imgFijas from '../../../../assets/fija.jpg';
+import imgFerulas from '../../../../assets/ferula.jpg';
+import imgImplantes from '../../../../assets/implante.jpg';
+import imgRemovibles from '../../../../assets/removible.jpg';
 
 const CategoriesList = () => {
-
-  const { productList } = useContext(ProductListContext);
-
-  const categories = ['Fijas', 'Implantes', 'Férulas', 'Removibles'];
+  const categories = [
+    { name: 'Fijas', img: `${imgFijas}`},
+    { name: 'Implantes', img: `${imgImplantes}`},
+    { name: 'Férulas', img: `${imgFerulas}`},
+    { name: 'Removibles', img: `${imgRemovibles}`},
+  ];
 
   return (
     <section className='categories'>
-      <Carousel>
+      <Carousel className="categories-carousel shadow">
         {categories.map((category, index) => (
           <Carousel.Item key={index}>
-            <Link to={`/category/${category}`} className="category-card">
+            <Link to={`/categorias/${category.name}`} className="category-card">
               <img
                 className="d-block w-100"
-                src={`https://via.placeholder.com/800x400?text=${category}`}
-                alt={category}
+                src={category.img}
+                alt={category.name}
               />
               <Carousel.Caption>
-                <h3>{category}</h3>
+                <h3>{category.name}</h3>
               </Carousel.Caption>
             </Link>
           </Carousel.Item>
@@ -32,4 +36,5 @@ const CategoriesList = () => {
 };
 
 export default CategoriesList;
+
 
