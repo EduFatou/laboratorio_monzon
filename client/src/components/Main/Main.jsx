@@ -14,7 +14,7 @@ const Main = () => {
     <Route path='/presupuesto' element={<Presupuesto />} />
     <Route path='/equipo' element={<Equipo />} />
     <Route path='/categorias' element={<CategoriesList />} />
-    <Route path="/category/:category" element={<Category />} />
+    <Route path="/categorias/:category" element={<Category />} />
     
     <Route path='/*' element={<Navigate to={"/"} />} />
   </Routes>

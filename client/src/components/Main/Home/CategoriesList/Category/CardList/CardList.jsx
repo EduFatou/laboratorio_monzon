@@ -18,7 +18,7 @@ const CardList = ({ category }) => {
   return (
     <section className='card-list'>
       {filteredProducts.map(product => (
-        <BootstrapCard key={product.product_id} className="mb-4" onClick={() => handleShow(product)}>
+        <BootstrapCard key={product.product_id} className="mb-4 shadow" onClick={() => handleShow(product)}>
           <BootstrapCard.Img variant="top" src={product.url_photo} />
           <BootstrapCard.Body>
             <BootstrapCard.Title>{product.product_name}</BootstrapCard.Title>
