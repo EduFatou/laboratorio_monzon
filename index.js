@@ -25,11 +25,6 @@ app.use('/api/quotes', quotesRoutes);
 app.use('/api/quote_products', quote_productsRoutes);
 app.use('/api/users', usersRoutes);
 
-
-app.get("/", (req, res) => {
-    res.send("Hello World! lets go for coffee!!");
-});
-
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
