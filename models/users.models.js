@@ -2,19 +2,21 @@ const queries = require('../queries/users.queries')
 const pool = require('../config/db_pgsql');
 
 // CREATE
-const createUser = async (user) => {
-    const { name, email, phone, password } = user;
+const createUser = async (name, email, phone, password) => {
     let client, result;
     try {
         client = await pool.connect(); 
         const data = await client.query(queries.createUser, [name, email, phone, password]);
-        result = data.rowCount;
+        result = data.rows;
     } catch (err) {
         console.log(err);
         throw err;
     } finally {
-        client.release();
+        if (client) {
+            await client.release();
+        }
     }
+    console.log(result)
     return result
 }
 // Pruebas PostgreSQL

@@ -11,7 +11,7 @@ const Presupuesto = () => {
   const { productList } = useContext(ProductListContext);
 
   useEffect(() => {
-    const user_email = 'edu@gmail.com'; //logica user_id!!
+    const user_email = 'edu@gmail.com'; //logica readuserbyemail!!
     const fetchUserData = async () => {
       try {
         const res = await axios.get(`http://localhost:3000/api/users?email=${user_email}`);
@@ -46,7 +46,7 @@ const Presupuesto = () => {
     event.preventDefault();
 
     if (!userData.user_id || !details || selectedProducts.length === 0) {
-      alert('Por favor, completa el presupuesto antes de enviarlo.');
+      alert('Completa el presupuesto antes de enviarlo.');
       return;
     }
 

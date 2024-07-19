@@ -20,7 +20,7 @@ const CategoriesList = () => {
           <Carousel.Item key={index}>
             <Link to={`/categorias/${category.name}`} className="category-card">
               <img
-                className="d-block w-100"
+                className="d-block w-100 fixed-size-img"
                 src={category.img}
                 alt={category.name}
               />

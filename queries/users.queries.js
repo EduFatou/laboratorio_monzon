@@ -1,6 +1,6 @@
 const queries = {
     createUser: `INSERT INTO users(name, email, phone, password, role)
-    VALUES ($1, $2, $3, $4, 'user');`,
+    VALUES ($1, $2, $3, $4, 'user') RETURNING *;`,
     readUsers: `SELECT * 
     FROM users
     WHERE role = 'user';`,
