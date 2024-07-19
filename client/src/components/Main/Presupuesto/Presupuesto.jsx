@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Form, Button, Row, Col, Container } from 'react-bootstrap';
+import { Form, Button, Row, Col, Container, Card } from 'react-bootstrap';
 import { ProductListContext } from '../../../context/ProductListContext';
 import axios from 'axios';
 
@@ -77,80 +77,85 @@ const Presupuesto = () => {
   };
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group as={Row} controlId="formName">
-          <Form.Label column sm={2}>Nombre:</Form.Label>
-          <Col sm={10}>
-            <Form.Control type="text" value={userData.name || ''} readOnly />
-          </Col>
-        </Form.Group>
-
-        <Form.Group as={Row} controlId="formEmail">
-          <Form.Label column sm={2}>Email:</Form.Label>
-          <Col sm={10}>
-            <Form.Control type="email" value={userData.email || ''} readOnly />
-          </Col>
-        </Form.Group>
-
-        <Form.Group as={Row} controlId="formPhone">
-          <Form.Label column sm={2}>Teléfono:</Form.Label>
-          <Col sm={10}>
-            <Form.Control type="text" value={userData.phone || ''} readOnly />
-          </Col>
-        </Form.Group>
-
-        <Form.Group controlId="formProducts">
-          <Form.Label>Productos:</Form.Label>
-          {selectedProducts.map((product, index) => (
-            <Row key={index} className="mb-3">
-              <Col>
-                <Form.Control
-                  as="select"
-                  name="product_id"
-                  value={product.product_id}
-                  onChange={(e) => handleProductChange(index, e)}
-                >
-                  <option value="">Seleccionar producto</option>
-                  {productList.map((prod) => (
-                    <option key={prod.product_id} value={prod.product_id}>
-                      {prod.product_name}
-                    </option>
-                  ))}
-                </Form.Control>
+    <Container className="presupuesto-container">
+      <Card className="presupuesto-card shadow">
+        <Card.Body>
+        <h2 className="login-title">Solicita tu presupuesto</h2>
+          <Form onSubmit={handleSubmit} className="presupuesto-form">
+            <Form.Group as={Row} controlId="formName" className="mb-3">
+              <Form.Label column sm={3}>Nombre:</Form.Label>
+              <Col sm={7}>
+                <Form.Control type="text" value={userData.name || ''} readOnly />
               </Col>
-              <Col>
-                <Form.Control
-                  type="number"
-                  name="quantity"
-                  value={product.quantity}
-                  onChange={(e) => handleProductChange(index, e)}
-                  min="1"
-                />
-              </Col>
-              <Col>
-                <Button variant="danger" onClick={() => handleRemoveProduct(index)}>
-                  Eliminar
-                </Button>
-              </Col>
-            </Row>
-          ))}
-          <Button variant="primary" onClick={handleAddProduct}>
-            Añadir Producto
-          </Button>
-        </Form.Group>
+            </Form.Group>
 
-        <Form.Group controlId="formDetails">
-          <Form.Label>Detalles:</Form.Label>
-          <Form.Control
-            as="textarea"
-            value={details}
-            onChange={(e) => setDetails(e.target.value)}
-          />
-        </Form.Group>
+            <Form.Group as={Row} controlId="formEmail" className="mb-3">
+              <Form.Label column sm={3}>Email:</Form.Label>
+              <Col sm={7}>
+                <Form.Control type="email" value={userData.email || ''} readOnly />
+              </Col>
+            </Form.Group>
 
-        <Button variant="success" type="submit">Enviar</Button>
-      </Form>
+            <Form.Group as={Row} controlId="formPhone" className="mb-3">
+              <Form.Label column sm={3}>Teléfono:</Form.Label>
+              <Col sm={7}>
+                <Form.Control type="text" value={userData.phone || ''} readOnly />
+              </Col>
+            </Form.Group>
+
+            <Form.Group controlId="formProducts" className="mb-3">
+              <Form.Label>Productos:</Form.Label>
+              {selectedProducts.map((product, index) => (
+                <Row key={index} className="mb-3 product-row">
+                  <Col>
+                    <Form.Control
+                      as="select"
+                      name="product_id"
+                      value={product.product_id}
+                      onChange={(e) => handleProductChange(index, e)}
+                    >
+                      <option value="">Seleccionar producto</option>
+                      {productList.map((prod) => (
+                        <option key={prod.product_id} value={prod.product_id}>
+                          {prod.product_name}
+                        </option>
+                      ))}
+                    </Form.Control>
+                  </Col>
+                  <Col>
+                    <Form.Control
+                      type="number"
+                      name="quantity"
+                      value={product.quantity}
+                      onChange={(e) => handleProductChange(index, e)}
+                      min="1"
+                    />
+                  </Col>
+                  <Col>
+                    <Button variant="danger" onClick={() => handleRemoveProduct(index)}>
+                      Eliminar
+                    </Button>
+                  </Col>
+                </Row>
+              ))}
+              <Button variant="primary" onClick={handleAddProduct} className="add-product-btn">
+                Añadir Producto
+              </Button>
+            </Form.Group>
+
+            <Form.Group controlId="formDetails" className="mb-3">
+              <Form.Label>Detalles:</Form.Label>
+              <Form.Control
+                as="textarea"
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+              />
+            </Form.Group>
+
+            <Button variant="success" type="submit" className="submit-btn">Enviar</Button>
+          </Form>
+        </Card.Body>
+      </Card>
     </Container>
   );
 };

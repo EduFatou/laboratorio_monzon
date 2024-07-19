@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const SignUp = () => {
@@ -11,6 +12,7 @@ const SignUp = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,19 +51,23 @@ const SignUp = () => {
       try {
         const res = await axios.post(`http://localhost:3000/api/users`, formData);
         console.log('Usuario creado:', res.data);
-        // Aquí puedes agregar lógica adicional después de un registro exitoso
+        const token = res.data[0];
+      localStorage.setItem('token', token);
+      navigate('/');
       } catch (error) {
-        console.error('Error posting data:', error.response?.data || error.message);
-        setErrors({ submit: 'Error al crear el usuario. Por favor, inténtalo de nuevo.' });
+        console.error('Error al hacer el post:', error.response?.data || error.message);
+        setErrors({ submit: 'Error al crear el usuario.' });
       }
     }
   };
 
   return (
     <Container>
+      <Card className="shadow p-3 mb-5 rounded">
+      <Card.Body>
       <Row className="justify-content-md-center">
         <Col md={6}>
-          <h2 className="text-center">Registro</h2>
+          <h2 className="login-title">Registro</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName">
               <Form.Label>Nombre</Form.Label>
@@ -115,12 +121,14 @@ const SignUp = () => {
               {errors.password && <div className="text-danger">{errors.password}</div>}
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100">
+            <Button variant="primary" type="submit">
               Registrarse
             </Button>
           </Form>
         </Col>
       </Row>
+      </Card.Body>
+      </Card>
     </Container>
   );
 };

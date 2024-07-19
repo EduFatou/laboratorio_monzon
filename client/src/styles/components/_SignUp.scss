@@ -1,0 +1,37 @@
+@import '../utils/variables';
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.signup-card {
+  width: 350px;
+  background-color: $alice-blue;
+  .card-body {
+    padding: 2rem;
+  }
+}
+
+.signup-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: $dark-blue;
+  font-weight: bold;
+}
+
+.form-label {
+  color: $dark-blue;
+}
+
+.form-control {
+  border-color: $dark-blue;
+  
+  &:focus {
+    border-color: $blueish-black;
+    box-shadow: 0 0 0 0.2rem rgba($blueish-black, 0.25);
+  }
+}

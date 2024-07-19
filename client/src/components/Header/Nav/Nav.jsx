@@ -1,28 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Form, FormControl, Button, NavDropdown } from 'react-bootstrap';
-import { ProductListContext } from '../../../context/ProductListContext';
+import { Navbar, Nav, Form, FormControl, Button, Offcanvas } from 'react-bootstrap';
 
 const Navigation = () => {
-  
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
-    <Navbar className="navbar" expand="lg">
-      <Navbar.Brand as={Link} to="/">Laboratorio Monzón</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/">Home</Nav.Link>
-          <Nav.Link as={Link} to="/categorias">Categorías</Nav.Link>
-          <Nav.Link as={Link} to="/presupuesto">Presupuesto</Nav.Link>
-          <Nav.Link as={Link} to="/equipo">Equipo</Nav.Link>
-          <Nav.Link as={Link} to="/registro">Registrarse</Nav.Link>
-        </Nav>
-        <Form inline="true" className="form-inline">
-          <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
-          <Button variant="outline-success">Buscar</Button>
-        </Form>
-      </Navbar.Collapse>
-    </Navbar>
+    <>
+      <Navbar className="navbar custom-navbar" expand={false}>
+        <Navbar.Brand as={Link} to="/">Laboratorio Monzón</Navbar.Brand>
+        <Navbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} className="custom-toggler" />
+        <Navbar.Offcanvas
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          placement="end"
+          show={show}
+          onHide={handleClose}
+          className="custom-offcanvas"
+        >
+          <Offcanvas.Header closeButton className="custom-offcanvas-header">
+            <Offcanvas.Title id="offcanvasNavbarLabel">Menú</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav.Link as={Link} to="/" onClick={handleClose}>Home</Nav.Link>
+              <Nav.Link as={Link} to="/categorias" onClick={handleClose}>Categorías</Nav.Link>
+              <Nav.Link as={Link} to="/presupuesto" onClick={handleClose}>Presupuesto</Nav.Link>
+              <Nav.Link as={Link} to="/equipo" onClick={handleClose}>Equipo</Nav.Link>
+              <Nav.Link as={Link} to="/registro" onClick={handleClose}>Registrarse</Nav.Link>
+              <Nav.Link as={Link} to="/login" onClick={handleClose}>Acceder</Nav.Link>            
+            </Nav>
+            <Form className="d-flex mt-3">
+              <FormControl
+                type="search"
+                placeholder="Buscar"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-light">Buscar</Button>
+            </Form>
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
+      </Navbar>
+    </>
   );
 };
 

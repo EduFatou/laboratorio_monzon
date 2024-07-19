@@ -10,28 +10,28 @@ const equipoData = [
   {
     id: 1,
     name: 'Eduardo Fatou',
-    role: 'Especialista en ',
-    description: 'Descripción1',
+    role: 'Especialista en prótesis completa de alto impacto y cerámica multicromática.',
+    description: 'Con más de 35 años de experiencia, hará lo necesario para ajustar al máximo las prótesis.',
     imgUrl: imgEduardo
   },
   {
     id: 2,
-    name: 'Juanma',
-    role: 'Especialista en',
+    name: 'Juan Manuel García',
+    role: 'Especialista en diseño digital, zirconio y disilicato.',
     description: 'Descripción2',
     imgUrl: imgJuanma
   },
   {
     id: 3,
     name: 'Germán Pérez',
-    role: 'Especialista en',
+    role: 'Especialista en diseño digital, nuevas tecnologías y cerámica estratificada.',
     description: 'Descripción3',
     imgUrl: 'https://via.placeholder.com/150' 
   },
   {
     id: 4,
-    name: 'Juan',
-    role: 'Especialista en',
+    name: 'Juan Díaz',
+    role: 'Especialista en diseño digital, alta estética en cerámica dental, zirconio, disilicato y carillas.',
     description: 'Descripción4',
     imgUrl: imgJuan
   }
@@ -42,7 +42,7 @@ const Equipo = () => {
     <Container>
       <Row className="mb-4">
         <Col>
-          <Image src={imgcabecera} fluid className="portada" />
+          <Image src={imgcabecera} fluid className="portada shadow" />
         </Col>
       </Row>
       <Row>
@@ -51,7 +51,7 @@ const Equipo = () => {
             <Card className={`shadow ${index % 2 === 0 ? 'left' : 'right'}`}>
               <Row nogutters="true" className={`align-items-center ${index % 2 === 0 ? 'flex-md-row' : 'flex-md-row-reverse'}`}>
                 <Col md={4} className={`text-center`}>
-                  <Image src={member.imgUrl} roundedCircle className="mb-3 equipo-img" />
+                  <Image src={member.imgUrl} roundedCircle className="shadow mb-3 equipo-img" />
                 </Col>
                 <Col md={8} className={`text-center`}>
                   <Card.Body>

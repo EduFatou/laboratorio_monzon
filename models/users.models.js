@@ -11,10 +11,8 @@ const createUser = async (name, email, phone, password) => {
     } catch (err) {
         console.log(err);
         throw err;
-    } finally {
-        if (client) {
-            await client.release();
-        }
+    }finally {
+        client.release();
     }
     console.log(result)
     return result
