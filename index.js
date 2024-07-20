@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config(); 
 
 const app = express(); //inicializa servidor
-const port = 3000;
+const port = process.env.RENDER_PORT || 3000;
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/dist')));
