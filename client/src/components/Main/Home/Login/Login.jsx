@@ -17,7 +17,7 @@ const Login = () => {
     setError('');
 
     try {
-      const res = await axios.get(`http://localhost:3000/api/users?email=${email}`);
+      const res = await axios.get(`/api/users?email=${email}`);
       console.log('existe user:', res.data[0]);
 
       if (!res.data[0]) {

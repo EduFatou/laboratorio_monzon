@@ -11,28 +11,28 @@ const equipoData = [
     id: 1,
     name: 'Eduardo Fatou',
     role: 'Especialista en prótesis completa de alto impacto y cerámica multicromática.',
-    description: 'Con más de 35 años de experiencia, hará lo necesario para ajustar al máximo las prótesis.',
+    description: 'Con más de 35 años de experiencia, brindar soluciones dentales que combinan funcionalidad, durabilidad y estética superior. Su profundo conocimiento y habilidades refinadas le permiten ajustar cada prótesis con precisión milimétrica, asegurando una integración perfecta y una apariencia natural.',
     imgUrl: imgEduardo
   },
   {
     id: 2,
     name: 'Juan Manuel García',
     role: 'Especialista en diseño digital, zirconio y disilicato.',
-    description: 'Descripción2',
+    description: 'Su enfoque innovador y meticuloso asegura que cada prótesis se ajuste perfectamente y cumpla con los más altos estándares de durabilidad y estética.',
     imgUrl: imgJuanma
   },
   {
     id: 3,
     name: 'Germán Pérez',
     role: 'Especialista en diseño digital, nuevas tecnologías y cerámica estratificada.',
-    description: 'Descripción3',
+    description: 'Es un pionero en la implementación de nuevas tecnologías. Su habilidad para integrar técnicas avanzadas con materiales de última generación garantiza resultados excepcionales, maximizando la funcionalidad y la belleza de cada prótesis.',
     imgUrl: 'https://via.placeholder.com/150' 
   },
   {
     id: 4,
     name: 'Juan Díaz',
     role: 'Especialista en diseño digital, alta estética en cerámica dental, zirconio, disilicato y carillas.',
-    description: 'Descripción4',
+    description: 'Su pasión por la estética y su dominio de las tecnologías digitales aseguran prótesis de calidad superior, brindando sonrisas naturales y deslumbrantes.',
     imgUrl: imgJuan
   }
 ];

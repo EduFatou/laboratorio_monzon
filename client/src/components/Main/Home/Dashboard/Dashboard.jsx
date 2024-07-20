@@ -13,10 +13,10 @@ const Dashboard = () => {
   const fetchData = async () => {
     try {
       const [quotesRes, usersRes, productsRes, quoteProductsRes] = await Promise.all([
-        axios.get('http://localhost:3000/api/quotes'),
-        axios.get('http://localhost:3000/api/users'),
-        axios.get('http://localhost:3000/api/products'),
-        axios.get('http://localhost:3000/api/quote_products')
+        axios.get('/api/quotes'),
+        axios.get('/api/users'),
+        axios.get('/api/products'),
+        axios.get('/api/quote_products')
       ]);
 
       setQuotes(quotesRes.data);
@@ -55,9 +55,9 @@ const Dashboard = () => {
     try {
       const quoteProductsToDelete = quoteProducts[quoteId] || [];
       for (const qp of quoteProductsToDelete) {
-        await axios.delete(`http://localhost:3000/api/quote_products?quote_product_id=${qp.quote_product_id}`);
+        await axios.delete(`/api/quote_products?quote_product_id=${qp.quote_product_id}`);
       }
-      await axios.delete(`http://localhost:3000/api/quotes?quote_id=${quoteId}`);
+      await axios.delete(`/api/quotes?quote_id=${quoteId}`);
 
       setQuotes(quotes.filter(quote => quote.quote_id !== quoteId));
 

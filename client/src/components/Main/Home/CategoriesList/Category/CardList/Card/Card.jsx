@@ -8,7 +8,7 @@ const Card = ({ product }) => {
       <BootstrapCard.Body>
         <BootstrapCard.Title>{product.product_name}</BootstrapCard.Title>
         <BootstrapCard.Text>{product.description}</BootstrapCard.Text>
-        <BootstrapCard.Text>Precio: {product.price}</BootstrapCard.Text>
+        <BootstrapCard.Text>Precio: {product.price} €</BootstrapCard.Text>
       </BootstrapCard.Body>
     </BootstrapCard>
   );

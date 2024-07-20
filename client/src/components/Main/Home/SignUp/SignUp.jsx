@@ -49,7 +49,7 @@ const SignUp = () => {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const res = await axios.post(`http://localhost:3000/api/users`, formData);
+        const res = await axios.post(`/api/users`, formData);
         console.log('Usuario creado:', res.data);
         
       navigate('/');

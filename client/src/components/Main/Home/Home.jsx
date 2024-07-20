@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get('http://localhost:3000/api/products');
+        const res = await axios.get('/api/products');
         const json = res.data;
 
         updateProductList(json);

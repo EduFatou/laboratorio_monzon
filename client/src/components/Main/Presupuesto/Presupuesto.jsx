@@ -17,7 +17,7 @@ const Presupuesto = () => {
     const user_email = user.email
     const fetchUserData = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/api/users?email=${user_email}`);
+        const res = await axios.get(`/api/users?email=${user_email}`);
         setUserData(res.data[0]);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -59,7 +59,7 @@ const Presupuesto = () => {
     };
 
     try {
-      const quoteResponse = await axios.post('http://localhost:3000/api/quotes', quoteData);
+      const quoteResponse = await axios.post('/api/quotes', quoteData);
       const quote_id = quoteResponse.data.quote_id;
 
       const quoteProductsData = selectedProducts.map(product => ({
@@ -69,7 +69,7 @@ const Presupuesto = () => {
       }));
       console.log(quoteProductsData);
       await Promise.all(quoteProductsData.map(async (quoteProduct) => {
-        await axios.post('http://localhost:3000/api/quote_products', quoteProduct);
+        await axios.post('/api/quote_products', quoteProduct);
       }));
 
       alert('Presupuesto enviado');

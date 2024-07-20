@@ -31,5 +31,5 @@ app.get('*', (req,res) =>{
 });
 
 const server = app.listen(port, () => {
-    console.log(`Lab app listening on http://localhost:${port}`);
+    console.log(`Laboratorio Monzón listening on port ${port}`);
 });
