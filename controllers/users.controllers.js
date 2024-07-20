@@ -13,9 +13,10 @@ const createUserController = async (req, res) => {
         "email" in newUser &&
         "phone" in newUser &&
         "password" in newUser
+
     ) {
         try {
-            const response = await user.createUser(newUser);
+            const response = await user.createUser(newUser.name, newUser.email, newUser.phone, newUser.password);
             res.status(201).json({
                 items_created: response
             });
@@ -32,8 +33,7 @@ const createUserController = async (req, res) => {
 //     "name": "PruebaUser",
 //     "email": "pruebauser@gmail.com",
 //      "phone": "+34 600 000 003",
-//     "password": "123456",
-//     "role": "user"
+//     "password": "123456"
 // }
 
 const readUsersController = async (req, res) => {

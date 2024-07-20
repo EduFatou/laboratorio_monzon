@@ -1,0 +1,64 @@
+@import '../utils/variables';
+
+.presupuesto-container {
+  padding: 2rem 0;
+}
+
+.presupuesto-card {
+  background-color: $alice-blue;
+
+  .card-body {
+    padding: 2rem;
+  }
+}
+
+.presupuesto-form {
+  .form-label {
+    color: $dark-blue;
+    font-weight: bold;
+  }
+
+  .form-control {
+    border-color: $dark-blue;
+    
+    &:focus {
+      border-color: $blueish-black;
+      box-shadow: 0 0 0 0.2rem rgba($blueish-black, 0.25);
+    }
+
+    &:read-only {
+      background-color: lighten($alice-blue, 5%);
+    }
+  }
+
+  .product-row {
+    background-color: lighten($alice-blue, 2%);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .add-product-btn {
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+    
+    &:hover, &:focus {
+      background-color: darken($dark-blue, 10%);
+      border-color: darken($dark-blue, 10%);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .presupuesto-card {
+    .card-body {
+      padding: 1rem;
+    }
+  }
+
+  .presupuesto-form {
+    .form-label {
+      text-align: left;
+    }
+  }
+}
