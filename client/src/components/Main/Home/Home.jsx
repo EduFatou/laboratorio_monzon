@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { ProductListContext } from '../../../context/ProductListContext';
 import CategoriesList from './CategoriesList';
 import Login from './Login/Login';
@@ -7,8 +7,8 @@ import axios from 'axios';
 
 
 const Home = () => {
-  const { productList, updateProductList } = useContext(ProductListContext);
-  const [value, setValue] = useState(null);
+  const { updateProductList } = useContext(ProductListContext);
+
 
   useEffect(() => {
     async function fetchData() {

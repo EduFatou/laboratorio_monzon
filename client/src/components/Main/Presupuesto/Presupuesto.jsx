@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Form, Button, Row, Col, Container, Card } from 'react-bootstrap';
 import { ProductListContext } from '../../../context/ProductListContext';
+import { UserContext } from '../../../context/UserContext';
 import axios from 'axios';
 
 const Presupuesto = () => {
@@ -9,9 +10,11 @@ const Presupuesto = () => {
   const [details, setDetails] = useState('');
 
   const { productList } = useContext(ProductListContext);
+  const { user } = useContext(UserContext);
+
 
   useEffect(() => {
-    const user_email = 'edu@gmail.com'; //logica readuserbyemail!!
+    const user_email = user.email
     const fetchUserData = async () => {
       try {
         const res = await axios.get(`http://localhost:3000/api/users?email=${user_email}`);

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
-import imgFijas from '../../../../assets/fija.jpg';
+import imgFijas from '../../../../assets/fijas3.png';
 import imgFerulas from '../../../../assets/ferula.jpg';
 import imgImplantes from '../../../../assets/implante.jpg';
 import imgRemovibles from '../../../../assets/removible.jpg';

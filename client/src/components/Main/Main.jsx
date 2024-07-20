@@ -7,6 +7,7 @@ import CategoriesList from './Home/CategoriesList/CategoriesList';
 import Category from './Home/CategoriesList/Category/Category';
 import SignUp from "./Home/SignUp/SignUp";
 import Login from './Home/Login';
+import Dashboard from './Home/Dashboard';
 
 const Main = () => {
   return <main className="main">
@@ -17,7 +18,8 @@ const Main = () => {
     <Route path='/categorias' element={<CategoriesList />} />
     <Route path="/categorias/:category" element={<Category />} />
     <Route path="/registro" element={<SignUp />} />
-    <Route path="/login" element={<Login />} />        
+    <Route path="/login" element={<Login />} />
+    <Route path="/dashboard" element={<Dashboard />} />
     <Route path='/*' element={<Navigate to={"/"} />} />
   </Routes>
 </main>;

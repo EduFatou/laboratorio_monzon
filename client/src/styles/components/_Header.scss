@@ -1,4 +1,6 @@
+@import "../utils/variables.scss";
 
-
-
-
+.header{
+    min-height: 5vh;
+    background-color: $blueish-black;
+}

@@ -1,28 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 import { Card, Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { updateUserData } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:3000/api/users', { email, password });
-      
-      const { token } = response.data;
-      localStorage.setItem('token', token);
-      navigate('/');
+      const res = await axios.get(`http://localhost:3000/api/users?email=${email}`);
+      console.log('existe user:', res.data[0]);
+
+      if (!res.data[0]) {
+        setError('Email o contraseña incorrectos');
+      } else {
+
+        if (password === res.data[0].password) {
+          updateUserData(res.data[0])
+          navigate('/');
+          alert('usuario correcto');
+
+        } else {
+          setError('Email o contraseña incorrectos');
+        }
+      }
     } catch (err) {
       setError('Email o contraseña incorrectos');
     }
-  };
+  }
 
   return (
     <div className="login-container">
@@ -35,7 +49,7 @@ const Login = () => {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Ingrese su email"
+                placeholder="Introduzca su email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -62,5 +76,6 @@ const Login = () => {
     </div>
   );
 };
+
 
 export default Login;

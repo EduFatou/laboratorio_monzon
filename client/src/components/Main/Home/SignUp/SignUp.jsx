@@ -24,15 +24,15 @@ const SignUp = () => {
 
   const validate = () => {
     const errors = {};
-    if (!formData.name.trim()) {
+    if (!formData.name) {
       errors.name = 'Debes introducir un nombre';
     }
-    if (!formData.email.trim()) {
+    if (!formData.email) {
       errors.email = 'Email necesario';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       errors.email = 'Email no válido';
     }
-    if (!formData.phone.trim()) {
+    if (!formData.phone) {
       errors.phone = 'Teléfono necesario';
     }
     if (!formData.password) {
@@ -51,8 +51,7 @@ const SignUp = () => {
       try {
         const res = await axios.post(`http://localhost:3000/api/users`, formData);
         console.log('Usuario creado:', res.data);
-        const token = res.data[0];
-      localStorage.setItem('token', token);
+        
       navigate('/');
       } catch (error) {
         console.error('Error al hacer el post:', error.response?.data || error.message);
