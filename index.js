@@ -7,7 +7,7 @@ const app = express(); //inicializa servidor
 const port = process.env.RENDER_PORT || 3000;
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, 'client', 'dist')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(express.json()); // Habilito recepción de JSON en servidor
 app.use(express.urlencoded({ extended: true })); // Habilito recepción de formularios en servidor
 
@@ -27,7 +27,7 @@ app.use('/api/users', usersRoutes);
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 const server = app.listen(port, () => {
