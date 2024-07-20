@@ -2,6 +2,7 @@
 
 .navbar {
   background-color: $blueish-black;
+  padding: 0 8px 2px 10px;
 
   .navbar-brand,
   .navbar-nav .nav-link {
@@ -10,6 +11,10 @@
     &:hover {
       color: $dark-blue;
     }
+  }
+
+  .form {
+    background-color: $blueish-black;
   }
 
   .custom-toggler {

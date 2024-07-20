@@ -61,7 +61,7 @@ const Navigation = () => {
               <Nav.Link as={Link} to="/categorias" onClick={handleClose}>Categorías</Nav.Link>
               <Nav.Link as={Link} to="/presupuesto" onClick={handleClose}>Presupuesto</Nav.Link>
               <Nav.Link as={Link} to="/equipo" onClick={handleClose}>Equipo</Nav.Link>
-              {!user && (
+              {user === null && (
                 <>
                   <Nav.Link as={Link} to="/registro" onClick={handleClose}>Registrarse</Nav.Link>
                   <Nav.Link as={Link} to="/login" onClick={handleClose}>Acceder</Nav.Link>
@@ -75,14 +75,14 @@ const Navigation = () => {
         </Navbar.Offcanvas>
       </Navbar>
       {showSearch && (
-        <Form className="d-md-none p-2 bg-light">
+        <Form className="d-md-none p-2 form">
           <FormControl
             type="search"
             placeholder="Buscar"
             className="me-2 mb-2"
             aria-label="Search"
           />
-          <Button variant="outline-primary" className="w-100">Buscar</Button>
+          <Button variant="outline-primary">Buscar</Button>
         </Form>
       )}
     </>

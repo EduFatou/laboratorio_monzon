@@ -3,13 +3,13 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config(); 
 
-const app = express(); //inicializa servidor
+const app = express();
 const port = process.env.RENDER_PORT || 3000;
 
-// Serve the static files from the React app
+
 app.use(express.static(path.join(__dirname, 'client/dist')));
-app.use(express.json()); // Habilito recepción de JSON en servidor
-app.use(express.urlencoded({ extended: true })); // Habilito recepción de formularios en servidor
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
 
 // Routes
 const productsRoutes = require("./routes/products.routes");
@@ -25,7 +25,7 @@ app.use('/api/quotes', quotesRoutes);
 app.use('/api/quote_products', quote_productsRoutes);
 app.use('/api/users', usersRoutes);
 
-// Handles any requests that don't match the ones above
+
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname+'/client/dist/index.html'));
 });
