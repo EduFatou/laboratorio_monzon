@@ -61,7 +61,7 @@ const Navigation = () => {
               <Nav.Link as={Link} to="/categorias" onClick={handleClose}>Categorías</Nav.Link>
               <Nav.Link as={Link} to="/presupuesto" onClick={handleClose}>Presupuesto</Nav.Link>
               <Nav.Link as={Link} to="/equipo" onClick={handleClose}>Equipo</Nav.Link>
-              {user === null && (
+              {user && !user.name && (
                 <>
                   <Nav.Link as={Link} to="/registro" onClick={handleClose}>Registrarse</Nav.Link>
                   <Nav.Link as={Link} to="/login" onClick={handleClose}>Acceder</Nav.Link>
