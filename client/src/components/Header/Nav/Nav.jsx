@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button, Offcanvas } from 'react-bootstrap';
 import { UserContext } from '../../../context/UserContext';
+import logo from '../../../../public/diente.png';
 
 const Navigation = () => {
   const [show, setShow] = useState(false);
@@ -15,20 +16,30 @@ const Navigation = () => {
   return (
     <>
       <Navbar className="navbar custom-navbar" expand={false}>
-        <Navbar.Brand as={Link} to="/">Laboratorio Monzón</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          <img
+            src={logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top d-md-none"
+            alt="Logo"
+          />
+          <span className="d-none d-md-inline">Laboratorio Dental Monzón</span>
+        </Navbar.Brand>
         <div className="d-flex ms-auto me-2 align-items-center">
-          <Form className="d-none d-md-flex">
+          <Form className="d-none d-md-flex align-items-center">
             <FormControl
               type="search"
               placeholder="Buscar"
               className="me-2"
               size="sm"
               aria-label="Search"
+              style={{height: '38px'}}
             />
             <Button variant="outline-light">Buscar</Button>
           </Form>
-          <Button 
-            variant="outline-light" 
+          <Button
+            variant="outline-light"
             className="d-md-none me-2"
             onClick={toggleSearch}
           >

@@ -47,7 +47,7 @@ VALUES
 -- Insertar datos en tabla producto
 INSERT INTO products (product_name, price, description, category, url_photo)
 VALUES
-('Corona de zirconio', 100, 'Descubre la resistencia del zirconio monolítico, perfecto para restauraciones impecables tanto en el sector posterior como anterior.', 'Fijas', 'https://www.resycam.com/wp-content/uploads/2020/01/contorno-completo-corona.jpg'),
+('Corona de zirconio', 100, 'Descubre la resistencia del zirconio monolítico, perfecto para restauraciones impecables tanto en el sector posterior como anterior.', 'Fijas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Protesis-fija-sin-metal-Enamic-Carillas-ceramica-hibrida-Dentales-Beticos.jpg'),
 ('Corona de disilicato', 100, 'Una prótesis que se adhiere con precisión al pilar mediante cementos dentales avanzados.', 'Fijas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Implantes-cementados-Dentales-Beticos.jpg'),
 ('Corona de metal sintetizado', 100, 'La durabilidad superior de la corona de metal sintetizado, hecha de una innovadora aleación perfecta para pacientes alérgicos al cobalto.', 'Fijas', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Protesis-fija-con-metal-Tilite-Dentales-Beticos-768x768.jpg'),
 ('Estructura esquelética', 100, 'Resistencia y ligereza en la estructura esquelética de cromo cobalto, combinada con un montaje en resina de alta calidad.', 'Removibles', 'https://dentales-beticos.com/wp-content/uploads/2017/10/Protesis-removible-esqueletica-Super-Nobilium-Dentales-Beticos-768x768.jpg'),

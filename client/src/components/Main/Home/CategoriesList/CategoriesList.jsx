@@ -7,10 +7,10 @@ import imgRemovibles from '../../../../assets/removible.jpg';
 
 const CategoriesList = () => {
   const categories = [
-    { name: 'Fijas', img: `${imgFijas}`},
-    { name: 'Implantes', img: `${imgImplantes}`},
-    { name: 'Férulas', img: `${imgFerulas}`},
-    { name: 'Removibles', img: `${imgRemovibles}`},
+    { name: 'Prótesis Fijas', img: `${imgFijas}`},
+    { name: 'Implantes Dentales', img: `${imgImplantes}`},
+    { name: 'Férulas Dentales', img: `${imgFerulas}`},
+    { name: 'Prótesis Removibles', img: `${imgRemovibles}`},
   ];
 
   return (
