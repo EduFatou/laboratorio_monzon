@@ -1,3 +1,6 @@
+@import '../utils/mixins.scss';
+@include spinner;
+
 .portada {
     width: 100%;
     height: auto;

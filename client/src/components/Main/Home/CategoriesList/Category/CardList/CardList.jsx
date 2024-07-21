@@ -22,8 +22,8 @@ const CardList = ({ category }) => {
           <BootstrapCard.Img variant="top" src={product.url_photo} />
           <BootstrapCard.Body>
             <BootstrapCard.Title>{product.product_name}</BootstrapCard.Title>
-            <BootstrapCard.Text>{product.description}</BootstrapCard.Text>
-            <BootstrapCard.Text>Precio: {product.price}</BootstrapCard.Text>
+            {/* <BootstrapCard.Text>{product.description}</BootstrapCard.Text>
+            <BootstrapCard.Text>Precio: {product.price}</BootstrapCard.Text> */}
           </BootstrapCard.Body>
         </BootstrapCard>
       ))}
@@ -36,7 +36,7 @@ const CardList = ({ category }) => {
           <Modal.Body>
             <img src={selectedProduct.url_photo} alt={selectedProduct.product_name} style={{ width: '100%' }} />
             <p>{selectedProduct.description}</p>
-            <p>Precio: {selectedProduct.price}</p>
+            {/* <p>Precio: {selectedProduct.price}</p> */}
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>

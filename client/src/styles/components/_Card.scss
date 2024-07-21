@@ -1,3 +1,6 @@
+@import '../utils/mixins.scss';
+@include spinner;
+
 .card {
   background-color: $alice-blue;
   margin: 10px;

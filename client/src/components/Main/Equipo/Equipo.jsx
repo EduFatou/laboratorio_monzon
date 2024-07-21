@@ -3,7 +3,7 @@ import { Card, Container, Row, Col, Image } from 'react-bootstrap';
 import imgEduardo from '../../../assets/eduardo1.jpg';
 import imgJuanma from '../../../assets/juanma1.jpeg';
 import imgJuan from '../../../assets/juan1.jpeg';
-import imgGerman from '../../../assets/eduardo1.jpg';
+import imgGerman from '../../../assets/german.png';
 import imgcabecera from '../../../assets/cabeceraequipo.jpg';
 
 const equipoData = [
@@ -11,7 +11,7 @@ const equipoData = [
     id: 1,
     name: 'Eduardo Fatou',
     role: 'Especialista en prótesis completa de alto impacto y cerámica multicromática.',
-    description: 'Con más de 35 años de experiencia, brindar soluciones dentales que combinan funcionalidad, durabilidad y estética superior. Su profundo conocimiento y habilidades refinadas le permiten ajustar cada prótesis con precisión milimétrica, asegurando una integración perfecta y una apariencia natural.',
+    description: 'Con más de 35 años de experiencia, su profundo conocimiento y habilidades refinadas le permiten ajustar cada prótesis con precisión milimétrica, asegurando una integración perfecta y una apariencia natural.',
     imgUrl: imgEduardo
   },
   {
@@ -25,8 +25,8 @@ const equipoData = [
     id: 3,
     name: 'Germán Pérez',
     role: 'Especialista en diseño digital, nuevas tecnologías y cerámica estratificada.',
-    description: 'Es un pionero en la implementación de nuevas tecnologías. Su habilidad para integrar técnicas avanzadas con materiales de última generación garantiza resultados excepcionales, maximizando la funcionalidad y la belleza de cada prótesis.',
-    imgUrl: 'https://via.placeholder.com/150' 
+    description: 'Pionero en la implementación de nuevas tecnologías. Su habilidad para integrar técnicas avanzadas con materiales de última generación garantiza resultados excepcionales.',
+    imgUrl: imgGerman
   },
   {
     id: 4,

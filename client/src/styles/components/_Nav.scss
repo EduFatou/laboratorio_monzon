@@ -1,8 +1,10 @@
 @import "../utils/variables.scss";
+@import '../utils/mixins.scss';
+@include spinner;
 
 .navbar {
   background-color: $blueish-black;
-  padding: 0 8px 2px 10px;
+  padding: 2px 8px 2px 10px;
 
   .navbar-brand,
   .navbar-nav .nav-link {
@@ -16,7 +18,7 @@
   .form {
     background-color: $blueish-black;
   }
-
+  
   .custom-toggler {
     border-color: $alice-blue;
     border: none;

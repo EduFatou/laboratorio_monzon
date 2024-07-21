@@ -1,1 +1,42 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+@include spinner;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .login-section {
+    padding: 20px;
+    text-align: center;
+  
+    h3 {
+      margin: 10px;
+      font-size: 1em;
+      color: $dark-blue;
+    }
+    p {
+      margin: 40px;
+      color: $dark-blue;
+    }
+  }
+  
+  .contact-section {
+    text-align: center;
+    .map-container {
+      iframe {
+        width: 100%;
+      }
+    }
+
+    p {
+      font-weight: bold;
+      color: $dark-blue;
+    }
+  
+  }
+}
+
+
 

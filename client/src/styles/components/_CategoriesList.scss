@@ -1,3 +1,6 @@
+@import '../utils/mixins.scss';
+@include spinner;
+
 .fixed-size-img {
   width: 100%;
   height: 300px;

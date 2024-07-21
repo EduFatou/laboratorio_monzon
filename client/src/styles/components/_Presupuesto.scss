@@ -1,4 +1,6 @@
 @import '../utils/variables';
+@import '../utils/mixins.scss';
+@include spinner;
 
 .presupuesto-container {
   padding: 2rem 0;

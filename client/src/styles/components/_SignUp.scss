@@ -1,4 +1,6 @@
 @import '../utils/variables';
+@import '../utils/mixins.scss';
+@include spinner;
 
 .signup-container {
   display: flex;

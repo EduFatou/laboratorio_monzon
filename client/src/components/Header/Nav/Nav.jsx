@@ -22,6 +22,7 @@ const Navigation = () => {
               type="search"
               placeholder="Buscar"
               className="me-2"
+              size="sm"
               aria-label="Search"
             />
             <Button variant="outline-light">Buscar</Button>

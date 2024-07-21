@@ -6,7 +6,10 @@
 }
 
 body {
-    background-color: $sky-blue;
+    background-image: url('../assets/background.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
 }
 
 .btn {
