@@ -4,6 +4,8 @@ import CategoriesList from './CategoriesList';
 import Login from './Login/Login';
 import Equipo from '../Equipo';
 import axios from 'axios';
+import { Hourglass } from 'react-loader-spinner';
+
 
 
 const Home = () => {

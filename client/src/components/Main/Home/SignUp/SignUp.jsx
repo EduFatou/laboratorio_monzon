@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Hourglass } from 'react-loader-spinner';
+
 
 const SignUp = () => {
   const [formData, setFormData] = useState({

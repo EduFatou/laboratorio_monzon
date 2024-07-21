@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Card, Container, Row, Col, Button } from 'react-bootstrap';
 import { UserContext } from '../../../../context/UserContext';
+import { Hourglass } from 'react-loader-spinner';
 
 const Dashboard = () => {
   const [quotes, setQuotes] = useState([]);
